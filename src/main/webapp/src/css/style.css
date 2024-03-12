@@ -1,0 +1,67 @@
+body{
+    /* background-color: #3B3936; */
+    background-image: url(../img/pexels-oleksandr-p-1031780.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hide;
+    flex-direction: column;
+}
+main{
+    background-color: #B2BEBF;
+    width: 50vw;
+    height: 50vh;
+    border: 1px double black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+    .titulo{
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3rem ;
+        letter-spacing: 3px;
+    }
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50%;
+    background-color: white;
+    color: black;
+}
+    .CamposUsuarios{
+        width: 72%;
+        height: 100%;
+        text-align: center;
+        font-family: "Oswald", sans-serif;
+        font-weight: 200;
+    }
+    /* Correção do campo de login */
+    .CampoLogin{
+        margin-left: 5px;
+    }
+
+    label{
+        margin-bottom: 1vh;
+        font-family: "Oswald", sans-serif;
+        font-weight: 400;
+        text-align: right;
+    }
+    button{
+        font: 700;
+        font-family: "Oswald", sans-serif;
+        width: 50%;
+        height: 20%;
+        border: 2px solid black;
+    }

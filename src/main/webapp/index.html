@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./src/css/reset.css">
+        <link rel="stylesheet" href="./src/css/style.css">
+        <!-- Fontes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1 class="titulo">Login</h1>
+        <main>
+            <form action="Sessao" method="post">
+                <label>Login: 
+                    <input type="text" name="UsuarioLogin" class="CamposUsuarios CampoLogin">
+                </label>
+
+                <label>Senha:
+                    <input type="password" name="UsuarioPassword" class="CamposUsuarios">
+                </label>
+                <br>
+                <button type="submit" value="Login">Login</button>
+                <!-- Entrar com codigo em jsp -->
+                <p>Status</p>
+            </form>
+        </main>
+    </body>
+</html>
