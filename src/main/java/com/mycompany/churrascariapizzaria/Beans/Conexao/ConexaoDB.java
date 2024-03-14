@@ -19,9 +19,10 @@ public class ConexaoDB {
     public static Connection getConnection() throws Exception {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://" + Config.IP + "/" + Config.DB + Config.UsuarioDB + Config.PasswordDB);
+            return DriverManager.getConnection("jdbc:mysql://"+Config.IP+"/"+Config.DB,Config.UsuarioDB,Config.PasswordDB);
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Erro nesta linha " +e);
         }
         return conexao;
 

@@ -11,6 +11,9 @@ public class SessaoBeans {
     private boolean Authenticar;
     private boolean UsuarioVerificado;
     private boolean PasswordVerificado;
+
+    public SessaoBeans() {
+    }
     
     public SessaoBeans(String Login, String Password){
         this.Usuario = Login;

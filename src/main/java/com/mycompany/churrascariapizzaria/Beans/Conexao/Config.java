@@ -20,8 +20,8 @@ public class Config {
     */
     public static String UsuarioDB = "root";
     public static String PasswordDB = "";
-    public static String DB = "Pizzaria";
-    public static String IP = "127.0.0.1";
+    public static String DB = "churrascaria";
+    public static String IP = "churrascaria.ddns.net";
 
     
 }
