@@ -19,7 +19,7 @@
         </header>
         <main>
             <div class="caixa">
-                <form action="Sessao" method="get">
+                <form action="Sessao" method="post">
                         <label>Login:</label>
                         <input type="text" name="UsuarioLogin" required>
                         <label>Senha:</label>

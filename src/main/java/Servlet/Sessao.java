@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,36 +33,35 @@ public class Sessao extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         LoginDao Authenticar = new LoginDao();
         SessaoBeans Login = new SessaoBeans();
+        //buscar sessão
         Login.setUsuario(request.getParameter("UsuarioLogin"));
         Login.setSenha(request.getParameter("UsuarioPassword"));
+       
         try {
             Authenticar.AuthenticarLogin(Login);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        
+
         //Verificar se o login está correto
-        if(LoginDao.AutenthicarUser){
+        if (LoginDao.AutenthicarUser) {
             //Verificar se a senha está corretar
-                if(LoginDao.AutenticarPass){
-                LoginDao.Status = "Tudo ok";
-            } else if(!LoginDao.AutenticarPass){
+            if (LoginDao.AutenticarPass) {
+                LoginDao.AutenticarSucesso = true;
+            } else if (!LoginDao.AutenticarPass) {
                 LoginDao.Status = "Senha incorretar";
-                response.sendRedirect("index.jsp");
+
             }
-        } else if(!LoginDao.AutenthicarUser){
+        } else if (!LoginDao.AutenthicarUser) {
             LoginDao.Status = "Usuario não encontrado";
             response.sendRedirect("index.jsp");
         }
         //Verificar se o login e a senha estão correta
-        if(LoginDao.AutenticarSucesso){
-            response.sendRedirect("Painel/index.html");
+        if (LoginDao.AutenticarSucesso) {
+            response.sendRedirect("Painel/index.jsp");
         }
-        
-
 
     }
 

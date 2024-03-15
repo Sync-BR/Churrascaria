@@ -6,13 +6,13 @@ body {
     "header header header"
     "nav main main" 
   ;
+  grid-template-columns: 12vw 1fr ;
   overflow-x: hidden;
 }
 
 header{
   display: flex;
   background-color: #014034;
-  width: 100vw;
   height: 10vh;
   grid-area: header;
   justify-content: space-between;
@@ -32,21 +32,20 @@ header{
     font: bolder;
   }
 nav{
-  width: 12vw;
   height: 100vh;
   min-height: 75vh;
   background-color: #014034;
   grid-area: nav;
-  display: flex;
   border-right: 2px solid #0D0D0D;
 }
   nav strong{
     font-size: 1.5rem;
+    margin-left: 0.1vw;
   }
+  
   nav summary{
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-    width: 11.9vw;
   }
 
     nav li{
@@ -61,10 +60,14 @@ nav{
       font-size: 1.2rem;
 
     }
+    
 main{
   background-color: white;
-  width: 87.9vw;
   height: 100vh;
-  min-width: 75vh;
+
   grid-area: main ;
+}
+.FormExit{
+  display: flex;
+  flex-direction: column-reverse;
 }

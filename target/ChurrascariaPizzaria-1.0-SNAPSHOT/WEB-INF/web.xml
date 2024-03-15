@@ -4,9 +4,25 @@
         <servlet-name>SessaoServlet</servlet-name>
         <servlet-class>Servlet.CloseSessao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CloseSessao</servlet-name>
+        <servlet-class>Servlet.CloseSessao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EncerrarSessao</servlet-name>
+        <servlet-class>Servlet.EncerrarSessao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SessaoServlet</servlet-name>
         <url-pattern>/SessaoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CloseSessao</servlet-name>
+        <url-pattern>/CloseSessao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EncerrarSessao</servlet-name>
+        <url-pattern>/EncerrarSessao</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

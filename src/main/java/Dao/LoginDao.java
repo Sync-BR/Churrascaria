@@ -18,6 +18,8 @@ public class LoginDao {
     public static boolean AutenthicarUser = false;
     public static boolean AutenticarPass = false;
     public static String Status = "";
+     public static String UsuarioConectado;
+
 
     /*Funcionalidade para efetuar login*/
     public void AuthenticarLogin(SessaoBeans Login) throws Exception {
@@ -55,6 +57,7 @@ public class LoginDao {
                 //Verificar se se os dados estão corretos
                 if (AutenthicarUser && AutenticarPass) {
                     AutenticarSucesso =true;
+                    UsuarioConectado =AuthenticarUser ;
                 }
             } else {
                 AutenticarSucesso = false;
