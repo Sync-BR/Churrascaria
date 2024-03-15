@@ -1,7 +1,7 @@
 package Dao;
 
-import com.mycompany.churrascariapizzaria.Beans.Conexao.ConexaoDB;
-import com.mycompany.churrascariapizzaria.Beans.SessaoBeans;
+import Conexao.ConexaoDB;
+import Beans.SessaoBeans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +17,11 @@ public class LoginDao {
     public static boolean AutenticarSucesso = false;
     public static boolean AutenthicarUser = false;
     public static boolean AutenticarPass = false;
+    public static String Status = "";
 
     /*Funcionalidade para efetuar login*/
     public void AuthenticarLogin(SessaoBeans Login) throws Exception {
+        Status = "";
         AutenticarSucesso = false;
         AutenticarPass = false;
         Connection conn = null;
@@ -42,6 +44,7 @@ public class LoginDao {
                     AutenthicarUser = true;
                 } else {
                     AutenthicarUser = false;
+                   
                 }
                 //Verificar Senha
                 if (AuthenticarPass.equals(Login.getSenha())) {

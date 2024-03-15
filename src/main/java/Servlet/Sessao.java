@@ -5,8 +5,9 @@
 package Servlet;
 
 import Dao.LoginDao;
-import com.mycompany.churrascariapizzaria.Beans.Conexao.ConexaoDB;
-import com.mycompany.churrascariapizzaria.Beans.SessaoBeans;
+import Conexao.ConexaoDB;
+import Beans.SessaoBeans;
+import static Dao.LoginDao.AutenthicarUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Eduar
+ * @author SYNC
  */
 @WebServlet(name = "Sessao", urlPatterns = {"/Sessao"})
 public class Sessao extends HttpServlet {
@@ -41,45 +42,26 @@ public class Sessao extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        if (LoginDao.AutenticarSucesso == true && LoginDao.AutenticarPass) {
-            try (PrintWriter out = response.getWriter()) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet SessaoServlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Sucesso</h1>");
-                out.println("</body>");
-                out.println("</html>");
-
+        
+        //Verificar se o login está correto
+        if(LoginDao.AutenthicarUser){
+            //Verificar se a senha está corretar
+                if(LoginDao.AutenticarPass){
+                LoginDao.Status = "Tudo ok";
+            } else if(!LoginDao.AutenticarPass){
+                LoginDao.Status = "Senha incorretar";
+                response.sendRedirect("index.jsp");
             }
-        } else if (!LoginDao.AutenticarPass) {
-            try (PrintWriter out = response.getWriter()) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet SessaoServlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1> Senha errada</h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
-
-        } else if (!LoginDao.AutenticarSucesso && !LoginDao.AutenticarPass ) {
-            try (PrintWriter out = response.getWriter()) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet SessaoServlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1> Login errada</h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
+        } else if(!LoginDao.AutenthicarUser){
+            LoginDao.Status = "Usuario não encontrado";
+            response.sendRedirect("index.jsp");
         }
+        //Verificar se o login e a senha estão correta
+        if(LoginDao.AutenticarSucesso){
+            response.sendRedirect("Painel/index.html");
+        }
+        
+
 
     }
 
