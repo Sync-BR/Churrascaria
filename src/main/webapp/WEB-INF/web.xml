@@ -12,6 +12,10 @@
         <servlet-name>EncerrarSessao</servlet-name>
         <servlet-class>Servlet.EncerrarSessao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletConfig</servlet-name>
+        <servlet-class>Servlet.ServletConfig</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SessaoServlet</servlet-name>
         <url-pattern>/SessaoServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>EncerrarSessao</servlet-name>
         <url-pattern>/EncerrarSessao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletConfig</servlet-name>
+        <url-pattern>/ServletConfig</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

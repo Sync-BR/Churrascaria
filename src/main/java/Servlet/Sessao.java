@@ -56,7 +56,7 @@ public class Sessao extends HttpServlet {
             }
         } else if (!LoginDao.AutenthicarUser) {
             LoginDao.Status = "Usuario não encontrado";
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("Painel/index.jsp");
         }
         //Verificar se o login e a senha estão correta
         if (LoginDao.AutenticarSucesso) {
